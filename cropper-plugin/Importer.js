@@ -102,17 +102,19 @@ function Importer() {
 
     const modifyMarkdownFile = (mdInput) => {
         let mdText = mdInput.split("<img");
-        let endText = mdInput.split("/>").split("<img");
-        let finalText = mdText[0];
-        for(let i = 0; i < mdInput.length-1; i++)
+        let endText = mdInput.split("/>");
+        let finalText = mdText[0] + exportText[0];
+        for(let i = 1; i < mdText.length - 1; i++)
         {
-            finalText = finalText + mdText[i] +  endText[i+1]
+            finalText = finalText + mdText[i].split('/>')[1] + exportText[i];
         }
+        finalText = finalText + mdText[mdText.length - 1].split('/>')[1];
+        console.log(finalText);
     }
 
 
     const generateFiles = () => {
-        for(let i = 0; i < croppedFiles.length - 1; i++)
+        for(let i = 0; i < croppedFiles.length; i++)
         {
             zip.file("image_" + i + ".jpg", croppedFiles[i]);
         }
