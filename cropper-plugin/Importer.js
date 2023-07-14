@@ -78,6 +78,7 @@ function Importer() {
             exportText[i-1] = modifyImageTag(mdText[i].split("/>")[0], i-1);
             exportText[i-1] = modifySpanTag(i-1) + exportText[i-1];    
         }
+        modifyMarkdownFile(mdInput);
         generateFiles();
     }
 
@@ -99,9 +100,19 @@ function Importer() {
 
     }
 
+    const modifyMarkdownFile = (mdInput) => {
+        let mdText = mdInput.split("<img");
+        let endText = mdInput.split("/>").split("<img");
+        let finalText = mdText[0];
+        for(let i = 0; i < mdInput.length-1; i++)
+        {
+            finalText = finalText + mdText[i] +  endText[i+1]
+        }
+    }
+
 
     const generateFiles = () => {
-        for(let i = 0; i < croppedFiles.length ; i++)
+        for(let i = 0; i < croppedFiles.length - 1; i++)
         {
             zip.file("image_" + i + ".jpg", croppedFiles[i]);
         }
