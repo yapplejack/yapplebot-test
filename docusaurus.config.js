@@ -3,11 +3,12 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const path = require("path");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Everybud',
+  tagline: 'Everybot is best',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -18,8 +19,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'yapple', // Usually your GitHub org/user name.
+  projectName: 'testEverybud', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -42,10 +43,16 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          //editUrl:
+            //'https://github.com/yapplejack/yapplebot-test/tree/main',
         },
-        blog:false,
+        blog: {
+          showReadingTime: true,
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/yapplejack/yapplebot-test/tree/main',
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -53,44 +60,52 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+          path.join(__dirname, '/cropper-plugin'),
+          { // this is the options object passed to the plugin
+              routes: [
+                  { // using Route schema from react-router
+                      path: '/crop',
+                      exact: false, // this is needed for sub-routes to match!
+                      component: '/cropper-plugin/Importer.js',
+                  }
+              ]
+          }
+      ],
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/everybot-logo.jpg',
       navbar: {
-        title: 'My Site',
+        title: 'Everybot Documentation',
+        hideOnScroll: true,
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/everybote.svg',
         },
         items: [
           {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Docs',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/blog', label: 'Updates', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
+            href: 'https://www.118everybot.org/',
+            label: 'Everybot hub website',
             position: 'right',
           },
+          //{to: '/resources', label: 'Team Resources', position: 'left'},
         ],
       },
       footer: {
         style: 'dark',
         links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
           {
             title: 'Community',
             items: [

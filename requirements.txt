@@ -1,0 +1,5 @@
+react-image-crop
+jszip
+filesaver
+
+just use npm install
