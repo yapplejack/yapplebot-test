@@ -68,7 +68,7 @@ const config = {
                   { // using Route schema from react-router
                       path: '/crop',
                       exact: false, // this is needed for sub-routes to match!
-                      component: '/cropper-plugin/Importer.js',
+                      component: '/cropper-plugin/Importerv2.js',
                   }
               ]
           }

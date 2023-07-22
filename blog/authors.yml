@@ -2,15 +2,3 @@ jack:
   name: Jack Ferguson 
   url: https://www.118everybot.org/
   image_url: https://static.wixstatic.com/media/d25166_a49d262fd11c45bf8699270bf8cb7b5f~mv2.png/v1/fill/w_728,h_425,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Everybot118.png
-
-yangshun:
-  name: Yangshun Tay
-  title: Front End Engineer @ Facebook
-  url: https://github.com/yangshun
-  image_url: https://github.com/yangshun.png
-
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
